@@ -39,16 +39,58 @@ function Web_Scroll_Top_form_enqueue_script(){
     wp_enqueue_script( 'web_scrollUp', plugins_url('js/web_scrollUp.js',__FILE__));
 }
 
-
 function web_scroll_top_function(){
 ?>
 <script>
-    
+
     jQuery(document).ready(function(){
         jQuery.scrollUp();
     });
 
 </script>
+
 <?php 
 }
 add_action('wp_footer','web_scroll_top_function');
+
+// Plugin Customization Settings
+
+add_action("customize_register", "web_scroll_up_customiza");
+
+function web_scroll_up_customiza($wp_customize){
+
+    $wp_customize->add_section('web_scroll_up',array(
+      'title' => __('Web Scroll Top','web-scroll-to-top'),
+      'description' => 'If you change to Web Scroll To Top Button',
+    ));
+
+    $wp_customize->add_setting('web_scroll_up_bg',array(
+      'defult' => '#000000',
+    ));
+
+    $wp_customize->add_control('web_scroll_up_bg',array(
+      'label' => 'Backgorund Color',
+      'section' => 'web_scroll_up',
+      'type'    => 'color',
+    ));
+
+}
+
+
+// Customizaiton setting display settings
+
+add_action("wp_head", "web_scroll_up_custom_display");
+
+function web_scroll_up_custom_display(){
+?>
+<style>
+/* Image style */
+  #scrollUp {
+    background-image: url("../images/top.png");   
+    background-color: <?php print get_theme_mod("web_scroll_up_bg"); ?>;  /* Height of image */
+
+}
+</style>
+
+<?php
+}
