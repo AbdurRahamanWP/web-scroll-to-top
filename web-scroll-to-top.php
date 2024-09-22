@@ -88,9 +88,9 @@ function web_scroll_up_customiza($wp_customize){
       'defult' => '10px',
     ));
 
-    $wp_customize->add_setting('web_scroll_up_icon',array(
-      'defult' => "../images/top.png",
-    ));
+    // $wp_customize->add_setting('web_scroll_up_icon',array(
+    //   'defult' => "../images/top.png",
+    // ));
 
 
     $wp_customize->add_control('web_scroll_up_bg',array(
@@ -134,12 +134,12 @@ function web_scroll_up_customiza($wp_customize){
       'description' => __( 'Add Border Radius form Buttom - Ex-30px' ),
     ));
 
-    $wp_customize->add_control('web_scroll_up_icon',array(
-      'label' => 'Icon/Images',
-      'section' => 'web_scroll_up',
-      'type'    => 'file',
-      'description' => __( 'Add Button Features Images' ),
-    ));
+    // $wp_customize->add_control('web_scroll_up_icon',array(
+    //   'label' => 'Icon/Images',
+    //   'section' => 'web_scroll_up',
+    //   'type'    => 'file',
+    //   'description' => __( 'Add Button Features Images' ),
+    // ));
 
 }
 
@@ -153,7 +153,7 @@ function web_scroll_up_custom_display(){
 <style>
 /* Image style */
   #scrollUp {
-    background-image: url("<?php print get_theme_mod("web_scroll_up_icon"); ?>");
+    /* background-image: url("<?php print get_theme_mod("web_scroll_up_icon"); ?>"); */
     background-color: <?php print get_theme_mod("web_scroll_up_bg"); ?>; 
     bottom: <?php print get_theme_mod("web_scroll_up_buttom"); ?>;
     right: <?php print get_theme_mod("web_scroll_up_right"); ?>;
