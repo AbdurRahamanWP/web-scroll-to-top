@@ -26,11 +26,21 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 
  add_action('wp_enqueue_scripts','Web_Scroll_Top_form_enqueue_styles');
+ add_action('admin_enqueue_scripts','Web_Scroll_Top_form_enqueue_admin_styles');
+
  function Web_Scroll_Top_form_enqueue_styles(){
-   // wp_enqueue_style( 'web_scroll_top_tab', plugins_url('css/tab.css',__FILE__));
-    wp_enqueue_style( 'web_scroll_top_image', plugins_url('css/image.css',__FILE__));
-    //wp_enqueue_style( 'web_scroll_top_link', plugins_url('css/link.css',__FILE__));
-  //  wp_enqueue_style( 'web_scroll_top_pill', plugins_url('css/pill.css',__FILE__));
+    wp_enqueue_style( 'web_scroll_top_tab', plugins_url('css/tab.css',__FILE__));
+   // wp_enqueue_style( 'web_scroll_top_image', plugins_url('css/image.css',__FILE__));
+   // wp_enqueue_style( 'web_scroll_top_link', plugins_url('css/link.css',__FILE__));
+   // wp_enqueue_style( 'web_scroll_top_pill', plugins_url('css/pill.css',__FILE__));
+    wp_enqueue_style( 'bootstrap', plugins_url('css/bootstrap.css',__FILE__));
+    wp_enqueue_style( 'bootstrap-min', plugins_url('css/bootstrap.min.css',__FILE__));
+}
+
+function Web_Scroll_Top_form_enqueue_admin_styles(){
+  wp_enqueue_style( 'bootstrap', plugins_url('css/bootstrap.css',__FILE__));
+  wp_enqueue_style( 'bootstrap-min', plugins_url('css/bootstrap.min.css',__FILE__));
+  wp_enqueue_style( 'admins', plugins_url('css/admin.css',__FILE__));
 }
 
 add_action('wp_enqueue_scripts','Web_Scroll_Top_form_enqueue_script');
@@ -88,11 +98,6 @@ function web_scroll_up_customiza($wp_customize){
       'defult' => '10px',
     ));
 
-    // $wp_customize->add_setting('web_scroll_up_icon',array(
-    //   'defult' => "../images/top.png",
-    // ));
-
-
     $wp_customize->add_control('web_scroll_up_bg',array(
       'label' => 'Backgorund Color',
       'section' => 'web_scroll_up',
@@ -134,13 +139,6 @@ function web_scroll_up_customiza($wp_customize){
       'description' => __( 'Add Border Radius form Buttom - Ex-30px' ),
     ));
 
-    // $wp_customize->add_control('web_scroll_up_icon',array(
-    //   'label' => 'Icon/Images',
-    //   'section' => 'web_scroll_up',
-    //   'type'    => 'file',
-    //   'description' => __( 'Add Button Features Images' ),
-    // ));
-
 }
 
 
@@ -153,16 +151,17 @@ function web_scroll_up_custom_display(){
 <style>
 /* Image style */
   #scrollUp {
-    /* background-image: url("<?php print get_theme_mod("web_scroll_up_icon"); ?>"); */
     background-color: <?php print get_theme_mod("web_scroll_up_bg"); ?>; 
     bottom: <?php print get_theme_mod("web_scroll_up_buttom"); ?>;
     right: <?php print get_theme_mod("web_scroll_up_right"); ?>;
     width: <?php print get_theme_mod("web_scroll_up_weight"); ?>; 
     height: <?php print get_theme_mod("web_scroll_up_height"); ?>; 
     border-radius: <?php print get_theme_mod("web_scroll_up_border_radius"); ?>; 
-
 }
 </style>
-
 <?php
 }
+
+require_once plugin_dir_path( __FILE__ ) . 'includes/Admin/menu.php';
+
+
