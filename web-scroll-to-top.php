@@ -28,13 +28,26 @@ if ( ! defined( 'ABSPATH' ) ) {
  add_action('wp_enqueue_scripts','Web_Scroll_Top_form_enqueue_styles');
  add_action('admin_enqueue_scripts','Web_Scroll_Top_form_enqueue_admin_styles');
 
+
  function Web_Scroll_Top_form_enqueue_styles(){
-    wp_enqueue_style( 'web_scroll_top_tab', plugins_url('css/tab.css',__FILE__));
-   // wp_enqueue_style( 'web_scroll_top_image', plugins_url('css/image.css',__FILE__));
-   // wp_enqueue_style( 'web_scroll_top_link', plugins_url('css/link.css',__FILE__));
-   // wp_enqueue_style( 'web_scroll_top_pill', plugins_url('css/pill.css',__FILE__));
-    wp_enqueue_style( 'bootstrap', plugins_url('css/bootstrap.css',__FILE__));
-    wp_enqueue_style( 'bootstrap-min', plugins_url('css/bootstrap.min.css',__FILE__));
+
+
+  $settings = json_decode(get_option('scroll_to_top'),true);
+  $scroll_top_type = $settings['scroll_top_type'];
+
+  if($scroll_top_type =='tab'){
+    require_once plugin_dir_path( __FILE__ ) . 'includes/Admin/tab_style.php';
+  }
+  if($scroll_top_type =='images'){
+    require_once plugin_dir_path( __FILE__ ) . 'includes/Admin/images_style.php';
+  }
+  if($scroll_top_type =='link'){
+    wp_enqueue_style( 'web_scroll_top_tab', plugins_url('css/link.css',__FILE__));
+  }
+  if($scroll_top_type =='pill'){
+    wp_enqueue_style( 'web_scroll_top_tab', plugins_url('css/pill.css',__FILE__));
+  }
+  
 }
 
 function Web_Scroll_Top_form_enqueue_admin_styles(){
@@ -145,19 +158,18 @@ function web_scroll_up_customiza($wp_customize){
 // Customizaiton setting display settings
 
 add_action("wp_head", "web_scroll_up_custom_display");
-
 function web_scroll_up_custom_display(){
 ?>
 <style>
 /* Image style */
-  #scrollUp {
+  /* #scrollUp {
     background-color: <?php print get_theme_mod("web_scroll_up_bg"); ?>; 
     bottom: <?php print get_theme_mod("web_scroll_up_buttom"); ?>;
     right: <?php print get_theme_mod("web_scroll_up_right"); ?>;
     width: <?php print get_theme_mod("web_scroll_up_weight"); ?>; 
     height: <?php print get_theme_mod("web_scroll_up_height"); ?>; 
     border-radius: <?php print get_theme_mod("web_scroll_up_border_radius"); ?>; 
-}
+} */
 </style>
 <?php
 }
