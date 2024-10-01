@@ -38,6 +38,7 @@
                             <option value='images'>Images Format</option>
                             <option value='link'>Link Format</option>
                             <option value='pill'>Pill Format</option>
+                            <option value='customizer'>Edit By Customizaiton</option>
                         </select>
                     </div>
                 </div> 
