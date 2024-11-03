@@ -33,7 +33,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
   $settings = json_decode(get_option('scroll_to_top'),true);
-  $scroll_top_type = $settings['scroll_top_type'];
+  @$scroll_top_type = $settings['scroll_top_type'];
 
   if($scroll_top_type =='tab'){
     require_once plugin_dir_path( __FILE__ ) . 'includes/Admin/tab_style.php';
@@ -57,12 +57,15 @@ function Web_Scroll_Top_form_enqueue_admin_styles(){
   wp_enqueue_style( 'bootstrap', plugins_url('css/bootstrap.css',__FILE__));
   wp_enqueue_style( 'bootstrap-min', plugins_url('css/bootstrap.min.css',__FILE__));
   wp_enqueue_style( 'admins', plugins_url('css/admin.css',__FILE__));
+  wp_enqueue_script( 'custom_js', plugins_url('js/custom.js',__FILE__));
+  wp_enqueue_media();
 }
 
 add_action('wp_enqueue_scripts','Web_Scroll_Top_form_enqueue_script');
 function Web_Scroll_Top_form_enqueue_script(){
     wp_enqueue_script('jquery');
     wp_enqueue_script( 'web_scrollUp', plugins_url('js/web_scrollUp.js',__FILE__));
+    
 }
 
 function web_scroll_top_function(){

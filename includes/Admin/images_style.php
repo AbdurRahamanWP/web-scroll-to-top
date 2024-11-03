@@ -4,7 +4,7 @@
 <style>
 
 #scrollUp {
-    background-image: url("images/top.png");
+    background-image: url("<?php echo @$settings['button_icon_img']; ?>");
     bottom: 20px;
     right: 20px;
     width: 38px;    /* Width of image */
