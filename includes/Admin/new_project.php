@@ -97,7 +97,7 @@
                         <span id="show_image"></span>
                         <input type="hidden" id="button_image" name="button_image" />
                     </div>
-                    <div class="col-sm-4"><img src="<?php echo @$settings['button_icon_img']; ?>" alt="Girl in a jacket" width="100" height="100"></div>
+                    <!-- <div class="col-sm-4"><img src="<?php // echo @$settings['button_icon_img']; ?>" alt="Girl in a jacket" width="100" height="100"></div> -->
                 </div>
 
                 <div class="form-group row">
@@ -112,7 +112,7 @@
                     <div class="col-sm-4">
                         <input type="text" class="form-control" id="font_size" name="font_size" value="<?php echo @$settings['font_size']; ?>" placeholder="Enter Text Font Size Ex- 10px">
                     </div>
-                   
+
                 </div>
                 
                 <div class="form-group row">
