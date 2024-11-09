@@ -1,20 +1,19 @@
 <?php
-
 /**
- * Plugin Name:       Web Scroll To Top
- * Plugin URI:        http://targetsoftbd.com/
- * Description:       Website Scroll to top plugin will help you to enable Back to Top button to your WordPress website.
- * Version:           1.0.0
- * Author:            Target Soft BD
- * Author URI:        https://www.facebook.com/AbdurRahamanWP
- * License:           GPL v2 or later
- * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Update URI:        https://github.com/AbdurRahamanWP/web-scroll-to-top
- * Text Domain:       web-scroll-to-top
- * Domain Path:       /languages
- *  Required at lest :  5.2
- *  Required php :  7.2
+ * Plugin Name: Web Scroll To Top
+ * Plugin URL: https://github.com/AbdurRahamanWP/web-scroll-to-top
+ * Text Domain: web-scroll-to-top
+ * Domain Path: /languages/
+ * Description: Website Scroll to top plugin will help you to enable Back to Top button to your WordPress website.
+ * Version: 1.0.0
+ * Author: ARahaman
+ * Author URI: https://github.com/AbdurRahamanWP/
+ * License: GPL-2.0-or-later
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ * Tested up to: 6.6
  */
+
+
 
 // If this file is called directly, abort.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -47,9 +46,7 @@ if ( ! defined( 'ABSPATH' ) ) {
   if($scroll_top_type =='pill'){
     require_once plugin_dir_path( __FILE__ ) . 'includes/Admin/pill_style.php';
   }
-  if($scroll_top_type =='customizer'){
-    require_once plugin_dir_path( __FILE__ ) . 'includes/Admin/customizer.php';
-  }
+  
   
 }
 

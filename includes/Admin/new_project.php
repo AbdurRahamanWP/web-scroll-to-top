@@ -16,7 +16,7 @@
                 'text_color' => isset($_POST['text_color']) ? $_POST['text_color'] : '',
                 'font_size' => isset($_POST['font_size']) ? $_POST['font_size'] : ''
             ];
-            update_option('scroll_to_top', json_encode($data));
+            update_option('scroll_to_top', wp_json_encode($data));
         }  
         ?>
 
@@ -33,60 +33,59 @@
                     <label for="inputEmail3" class="col-sm-4 col-form-label">Select Type</label>
                     <div class="col-sm-6">
                         <select class="form-control" id="scroll_top_type" name='scroll_top_type'>
-                            <option value='<?php echo @$settings['scroll_top_type']; ?>'><?php echo @$settings['scroll_top_type']; ?></option>
+                            <option value='<?php echo esc_html($settings['scroll_top_type']); ?>'><?php echo esc_html($settings['scroll_top_type']); ?></option>
                             <option value='tab'>Tab Format</option>
                             <option value='images'>Images Format</option>
                             <option value='link'>Link Format</option>
                             <option value='pill'>Pill Format</option>
-                            <option value='customizer'>Edit By Customizaiton</option>
                         </select>
                     </div>
                 </div> 
                 <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-4 col-form-label">Button Height</label>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" id="button_height" name="button_height" value="<?php echo @$settings['height']; ?>" placeholder="Enter Button Height. Ex - 10px">
+                        <input type="text" class="form-control" id="button_height" name="button_height" value="<?php echo esc_html($settings['height']); ?>" placeholder="Enter Button Height. Ex - 10px">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-4 col-form-label">Button Width</label>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" id="button_width" name="button_width" value="<?php echo @$settings['button_width']; ?>" placeholder="Enter Button Width. Ex - 10px">
+                        <input type="text" class="form-control" id="button_width" name="button_width" value="<?php echo esc_html($settings['button_width']); ?>" placeholder="Enter Button Width. Ex - 10px">
                     </div>
                 </div>
                 
                 <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-4 col-form-label">Right</label>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" id="padding_right" name="padding_right" value="<?php echo @$settings['padding_right']; ?>" placeholder="Enter Padding Right. Ex - 10px">
+                        <input type="text" class="form-control" id="padding_right" name="padding_right" value="<?php echo esc_html($settings['padding_right']); ?>" placeholder="Enter Padding Right. Ex - 10px">
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-4 col-form-label">Buttom</label>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" id="padding_buttom" name="padding_buttom" value="<?php echo @$settings['padding_buttom']; ?>" placeholder="Enter Buttom Padding. Ex - 10px">
+                        <input type="text" class="form-control" id="padding_buttom" name="padding_buttom" value="<?php echo esc_html($settings['padding_buttom']); ?>" placeholder="Enter Buttom Padding. Ex - 10px">
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-4 col-form-label">Padding</label>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" id="padding_all" name="padding_all" value="<?php echo @$settings['padding_all']; ?>" placeholder="Enter Padding. Ex - 10px">
+                        <input type="text" class="form-control" id="padding_all" name="padding_all" value="<?php echo esc_html($settings['padding_all']); ?>" placeholder="Enter Padding. Ex - 10px">
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-4 col-form-label">Border Radius</label>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" id="border_Radius" name="border_Radius" value="<?php echo @$settings['border_Radius']; ?>" placeholder="Enter Border Radius. Ex - 10px">
+                        <input type="text" class="form-control" id="border_Radius" name="border_Radius" value="<?php echo esc_html($settings['border_Radius']); ?>" placeholder="Enter Border Radius. Ex - 10px">
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-4 col-form-label">Backgorund Color</label>
                     <div class="col-sm-2">
-                        <input type="color" id="background_color" name="background_color" value="<?php echo @$settings['background_color']; ?>">
+                        <input type="color" id="background_color" name="background_color" value="<?php echo esc_html($settings['background_color']); ?>">
                     </div>
                 </div>
 
@@ -103,14 +102,14 @@
                 <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-4 col-form-label">Text Color</label>
                     <div class="col-sm-2">
-                        <input type="color" id="text_color" name="text_color" value="<?php echo @$settings['text_color']; ?>">
+                        <input type="color" id="text_color" name="text_color" value="<?php echo esc_html($settings['text_color']); ?>">
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-4 col-form-label">Font-Size</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" id="font_size" name="font_size" value="<?php echo @$settings['font_size']; ?>" placeholder="Enter Text Font Size Ex- 10px">
+                        <input type="text" class="form-control" id="font_size" name="font_size" value="<?php echo esc_html($settings['font_size']); ?>" placeholder="Enter Text Font Size Ex- 10px">
                     </div>
 
                 </div>
