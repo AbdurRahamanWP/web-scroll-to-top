@@ -1,5 +1,4 @@
 <div class="container newProject">
-
         <?php
         
         if(isset($_POST['submit'])){

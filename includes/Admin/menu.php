@@ -21,7 +21,7 @@ function web_scroll_to_top_form(){
     require_once plugin_dir_path( __FILE__ ). "/new_project.php"; 
     $template = ob_get_contents();
     ob_end_clean();
-    echo esc_html($template);
+    echo $template;
 }
 
 ?>
